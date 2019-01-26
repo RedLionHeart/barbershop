@@ -17,8 +17,8 @@ class Tovars extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('small_title');
+            $table->boolean('published');
             $table->string('slug')->unique();
-            $table->integer('parent_id')->nullable();
             $table->integer('category_id')->nullable();
             $table->double('value');
             $table->text('pict_way');
@@ -26,6 +26,9 @@ class Tovars extends Migration
             $table->text('description');
             $table->integer('maker_id');
             $table->string('articul');
+            $table->string('meta_title');
+            $table->string('meta_description');
+            $table->string('meta_keyword');
             $table->timestamps();
         });
     }

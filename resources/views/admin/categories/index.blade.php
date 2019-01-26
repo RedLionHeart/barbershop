@@ -27,6 +27,7 @@
 
                     <thead>
                     <th>Наименование</th>
+                    <th>Состояние публикации</th>
                     <th>Товар</th>
                     <th class="text-right">Действие</th>
                     </thead>
@@ -34,9 +35,22 @@
                     @forelse ($categories as $category)
                         <tr>
                             <td>{{$category->category_name}}</td>
-                            <td>{{$category->maker_name}}</td>
                             <td>
-                                <a href="{{route('admin.category.edit', ['id'=>$category->id])}}"><i class="fa fa-edit"></i></a>
+                                @if($category->published == 0)
+                                    Не опубликовано
+                                @else
+                                    Опубликовано
+                                @endif
+                            </td>
+                            <td>{{$category->maker_name}}</td>
+                            <td class="text-right">
+                                <form onsubmit="return confirm('Удалить?')" action="{{route('admin.category.destroy', $category)}}" method="post">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    {{csrf_field() }}
+                                    <a href="{{route('admin.category.edit', $category)}}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                </form>
+
                             </td>
                         </tr>
                     @empty

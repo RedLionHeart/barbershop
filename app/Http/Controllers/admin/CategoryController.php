@@ -65,7 +65,11 @@ class CategoryController extends Controller
      */
     public function edit(category $category)
     {
-        //
+        return view('admin.categories.edit',[
+            'category' => $category,
+            'categories' =>Category::with('children')->where('parent_id','0')->get(),
+            'delimiter' => ''
+        ]);
     }
 
     /**
@@ -77,7 +81,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, category $category)
     {
-        //
+        $category->update($request->except('slug'));
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -88,6 +93,7 @@ class CategoryController extends Controller
      */
     public function destroy(category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.category.index');
     }
 }
