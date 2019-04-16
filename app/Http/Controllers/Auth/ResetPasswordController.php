@@ -21,7 +21,7 @@ class ResetPasswordController extends Controller
     use ResetsPasswords;
 
     /**
-     * Where to redirect tovars after resetting their password.
+     * Where to redirect products after resetting their password.
      *
      * @var string
      */

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Tovars extends Migration
+class product extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Tovars extends Migration
      */
     public function up()
     {
-        Schema::create('tovars', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->string('small_title');
@@ -40,6 +40,6 @@ class Tovars extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tovars');
+        Schema::dropIfExists('products');
     }
 }

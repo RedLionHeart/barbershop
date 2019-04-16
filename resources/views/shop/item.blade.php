@@ -1,5 +1,9 @@
 @extends("layout")
 
+@section('title')
+  {{$product->title}}
+  @endsection
+
 @section('content')
   <form action="#" method="get" class="enter-form">
     <h2>Личный кабинет</h2>
@@ -11,7 +15,7 @@
       <a class="forgot-pass" href="#">Я забыл пароль!</a></p>
     <input type="submit" id="enter-4" name="enter-submit" class="btn" value="Войти">
     <!--[if IE 9]><p>*Обязательные для заполнения поля</p><![endif]-->
-    <a class="close black" href="index.html"></a>
+    <a class="close black" href="{{url('/')}}"></a>
   </form>
 
   <!-- Контент -->
@@ -19,10 +23,10 @@
     <div class="container">
 
       <ul class="breadcrumbs item">
-        <li><a href="/index">Главная</a></li>
+        <li><a href="/">Главная</a></li>
         <li><a href="/shop">Магазин</a></li>
         <li><a href="/shop">Средства для ухода</a></li>
-        <li>Baxter of California</li>
+        <li>{{$product->small_title}}</li>
       </ul>
 
       <div class="row">
@@ -38,21 +42,23 @@
 
         <div class="col col5 offset1 item-col">
 
-          <h2 class="item-title">Набор для путешествий<br>
-            <a href="#">Baxter of California</a>
+
+
+          <h2 class="item-title">{{$product->title}}<br>
+            <a href="#">{{$product->small_title}}</a>
           </h2>
 
           <div class="price item">
-            <p class="price-text">2 900 руб.</p>
-            <a class="price-btn" href="#">купить</a>
+            <p class="price-text">{{$product->value}} руб.</p>
+            <a class="price-btn" href="{{ route('add.to.cart', ['id' => $product->id]) }}">купить</a>
           </div>
 
           <div class="item-id">
-            <p class="id-number">Артикул: Dexter-ae</p>
-            <p>Есть в наличии</p>
+            <p class="id-number">Артикул: {{$product->articul}}</p>
+            <p>{{$product->available}} в наличии</p>
           </div>
 
-          <p>Travel Kit – необходимый аксессуар во время любого путешествия. В аккуратной кожаной сумке находится все, что нужно для бритья и ухода за кожей во время рабочей поездки или отдыха: средство для умывания, увлажняющий крем, крем для бритья, крем после бритья, шампунь. Набор также может стать отличным подарком.</p>
+          <p>{{$product->description}}</p>
 
           <h3 class="contents-title">В набор входят:</h3>
           <ul class="list contents">
@@ -62,6 +68,7 @@
             <li>Крем после бритья, шампунь (50 мл)</li>
             <li>Удобная кожаная косметичка</li>
           </ul>
+
 
         </div>
       </div>

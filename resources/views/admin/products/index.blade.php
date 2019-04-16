@@ -20,7 +20,7 @@
                 @endcomponent
             </div>
                 <hr>
-    <a href="{{route('admin.tovars.create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus-square"></i> Создать товар</a>
+    <a href="{{route('admin.products.create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus-square"></i> Создать товар</a>
     <table class="table table-striped table-bordered">
 
         <thead>
@@ -30,16 +30,16 @@
         <th class="text-right">Действие</th>
         </thead>
         <tbody>
-        @forelse ($tovars as $tovar)
+        @forelse ($products as $product)
             <tr>
-                <td>{{$tovar->title}}</td>
-                <td>{{$tovar->category_id}}</td>
-                <td>{{$tovar->value.'$'}}</td>
+                <td>{{$product->title}}</td>
+                <td>{{$product->category_id}}</td>
+                <td>{{$product->value.' руб.'}}</td>
                 <td class="text-right">
-                    <form onsubmit="return confirm('Удалить?')" action="{{route('admin.tovars.destroy', $tovar)}}" method="post">
+                    <form onsubmit="return confirm('Удалить?')" action="{{route('admin.products.destroy', $product)}}" method="post">
                         <input type="hidden" name="_method" value="DELETE">
                         {{csrf_field() }}
-                        <a href="{{route('admin.tovars.edit', $tovar)}}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                        <a href="{{route('admin.products.edit', $product)}}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
                     </form>
 
@@ -55,7 +55,7 @@
         <tr>
             <td colspan="3">
                 <ul class="pagination pull-right">
-                    {{$tovars->links()}}
+                    {{$products->links()}}
 
                 </ul>
 

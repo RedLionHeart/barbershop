@@ -2,40 +2,24 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Barbershop main page</title>
-  <link href="css/reset.css" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-  <link href="css/main.css" rel="stylesheet">
-  <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
-  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/png" href="favicon-64x64.png" sizes="64x64">
-  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+  <title>Barbershop / Главная страница</title>
+  @include('layouts.link')
 </head>
 <body class="main-body">
 
   <!-- Хедер, он же верхнее навигационное меню -->
-@include("layouts.nav")
+
+  @include('layouts.nav')
 
   <!-- Форма входа -->
-  <form action="#" method="get" class="enter-form">
-    <h2>Личный кабинет</h2>
-    <p class="enter-form-text">Введите пожалуйста свой логин и пароль</p>
-    <a class="enter-form-forgot" href="#">Если вы забыли пароль</a>
-    <p class="login"><!--[if IE 9]>Логин<![endif]--><input type="text" id="enter-1" name="enter-login" placeholder="Логин"></p>
-    <p class="pass"><!--[if IE 9]>Пароль<![endif]--><input type="password" id="enter-2" name="enter-pass" placeholder="Пароль"></p>
-    <p class="remember"><input type="checkbox" id="enter-3" name="enter-remember" checked><label for="enter-3">Запомните меня</label>
-    <a class="forgot-pass" href="#">Я забыл пароль!</a></p>
-    <input type="submit" id="enter-4" name="enter-submit" class="btn" value="Войти">
-    <!--[if IE 9]><p>*Обязательные для заполнения поля</p><![endif]-->
-    <a class="close" href="#"></a>
-  </form>
+
+  @include('layouts.login_form')
 
   <!-- Контент -->
   <div class="container">
     <main class="main-index">
       <div class="logo">
-          <a href="index.html">Barbershop Borodinski</a>
+          <a href="/">Barbershop Borodinski</a>
       </div>
 
       <div class="row">
@@ -93,8 +77,8 @@
           <div class="col col5">
             <a name="contacts"><h2 class="index-title">Контактная информация</h2></a>
             <p class="index-contacts">Barbershop «Borodinski»</p>
-            <p class="index-contacts">Адрес: г. Москва, ул. Собаки павлова, д. 13</p>
-            <p class="index-contacts phone-text">Телефон: +7 (495) 666-02-666</p>
+            <p class="index-contacts">Адрес: г. Гомель, ул. Советская, д. 1</p>
+            <p class="index-contacts phone-text">Телефон: +375 (44) 777-77-77</p>
             <p class="index-contacts">Время работы:</p>
             <p class="index-contacts">Пн — пт: с 10:00 до 22:00</p>
             <p class="index-contacts last">Сб — вс: с 10:00 до 19:00</p>

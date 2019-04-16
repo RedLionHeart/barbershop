@@ -12,10 +12,10 @@
 
             <hr>
             <div class="form-group">
-                <form action="{{route('admin.tovars.update', $tovars)}}" class="form-gorizontal" method="post">
+                <form action="{{route('admin.products.update', $product)}}" class="form-gorizontal" method="post">
                     <input type="hidden" name="_method" value="put">
                     {{csrf_field()}}
-                    @include('admin.tovars.partials.form')
+                    @include('admin.products.partials.form')
                 </form>
 
             </div>

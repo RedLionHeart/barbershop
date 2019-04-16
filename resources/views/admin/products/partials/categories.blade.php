@@ -1,8 +1,8 @@
 @foreach($categories as $category)
     <option value="{{$category->id or ''}}"
-    @isset($tovar->id)
-        @foreach ($tovar->categories as $category_tovar)
-            @if($category->id == $category_tovar->id)
+    @isset($product->id)
+        @foreach ($product->categories as $category_product)
+            @if($category->id == $category_product->id)
                 selected="selected"
             @endif
             @endforeach
@@ -12,8 +12,8 @@
     </option>
 
     @if(count($category->children)>0)
-        @include('admin.tovars.partials.categories',[
-        'categories' =>$tovar->children,
+        @include('admin.products.partials.categories',[
+        'categories' =>$product->children,
         'delimiter'=>' - ' .$delimiter
         ])
     @endif

@@ -6576,7 +6576,7 @@
 	{
 		$(n)
 			.on( 'click.DT', oData, function (e) {
-					$(n).blur(); // Remove focus outline for mouse tovars
+					$(n).blur(); // Remove focus outline for mouse products
 					fn(e);
 				} )
 			.on( 'keypress.DT', oData, function (e){

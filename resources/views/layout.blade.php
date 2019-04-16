@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Barbershop / catalog</title>
+    <title>Barbershop / @yield('title','Магазин')</title>
     @include('layouts.link')
 </head>
 <body>
